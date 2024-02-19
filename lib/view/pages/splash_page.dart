@@ -177,7 +177,7 @@ class OTPForm extends StatelessWidget {
       mainAxisSize: MainAxisSize.min ,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric( horizontal: 10),
+          padding: const EdgeInsets.symmetric( horizontal: 14),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
