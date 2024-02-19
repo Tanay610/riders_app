@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:riders_app/constants/colors.dart';
 import 'package:riders_app/constants/text_styles.dart';
 import 'package:riders_app/controllers/time_controller.dart';
+import 'package:riders_app/view/pages/profile_page.dart';
 
 class OTPForm extends StatelessWidget {
   OTPForm({super.key});
@@ -51,8 +52,8 @@ class OTPForm extends StatelessWidget {
                   keyboardType: TextInputType.number,
                   onSaved: (pin1) {},
                   decoration: const InputDecoration(
-                      fillColor: Color(0xFFF4F4F4),
-                      filled: true,
+                      // fillColor: Color(0xFFF4F4F4),
+                      // filled: true,
                       border: InputBorder.none,
                       focusedBorder: OutlineInputBorder(
                         
@@ -82,8 +83,8 @@ class OTPForm extends StatelessWidget {
                   keyboardType: TextInputType.number,
                   onSaved: (pin1) {},
                   decoration: const InputDecoration(
-                      fillColor: Color(0xFFF4F4F4),
-                      filled: true,
+                      // fillColor: Color(0xFFF4F4F4),
+                      // filled: true,
                       border: InputBorder.none,
                       focusedBorder: OutlineInputBorder(
                         
@@ -112,8 +113,8 @@ class OTPForm extends StatelessWidget {
                   keyboardType: TextInputType.number,
                   onSaved: (pin1) {},
                   decoration: const InputDecoration(
-                      fillColor: Color(0xFFF4F4F4),
-                      filled: true,
+                      // fillColor: Color(0xFFF4F4F4),
+                      // filled: true,
                       border: InputBorder.none,
                       focusedBorder: OutlineInputBorder(
                         
@@ -142,8 +143,8 @@ class OTPForm extends StatelessWidget {
                   keyboardType: TextInputType.number,
                   onSaved: (pin1) {},
                   decoration: const InputDecoration(
-                      fillColor: Color(0xFFF4F4F4),
-                      filled: true,
+                      // fillColor: Color(0xFFF4F4F4),
+                      // filled: true,
                       border: InputBorder.none,
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color:AppColors.justGrey40 ),
@@ -185,7 +186,9 @@ class OTPForm extends StatelessWidget {
                   backgroundColor: AppColors.green1000,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(8)))),
-              onPressed: () {},
+              onPressed: () {
+                Get.to(ProfilePage());
+              },
               child: Text(
                 'Verify OTP',
                 style: FontStyles.mediumP16(color: AppColors.justGrey10),

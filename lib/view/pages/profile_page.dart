@@ -4,7 +4,9 @@ import 'package:riders_app/constants/colors.dart';
 import 'package:riders_app/constants/text_styles.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+  ProfilePage({super.key});
+
+  bool isOn = true;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class ProfilePage extends StatelessWidget {
                 )
               ],
             ),
-          )
+          ),
         ],
       ),
       body: Column(
@@ -67,7 +69,9 @@ class ProfilePage extends StatelessWidget {
                 ),
                   ],
                 ),
-                Switch(value: true, onChanged: (ca){},
+                Switch(value: isOn, onChanged: (ca){
+                  
+                },
                 activeColor:Colors.white,
                 activeTrackColor: AppColors.green1000,
                 )
