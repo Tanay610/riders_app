@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:riders_app/constants/colors.dart';
 import 'package:riders_app/constants/text_styles.dart';
+import 'package:riders_app/controllers/time_controller.dart';
 
 class OTPForm extends StatelessWidget {
-  const OTPForm({super.key});
+  OTPForm({super.key});
+
+  var controller = Get.put(TimerController());
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +16,7 @@ class OTPForm extends StatelessWidget {
       mainAxisSize: MainAxisSize.min ,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric( horizontal: 14),
+          padding: const EdgeInsets.only(left: 16, top: 16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -31,7 +35,7 @@ class OTPForm extends StatelessWidget {
         ),
         
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -158,21 +162,23 @@ class OTPForm extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 12),
+          padding: const EdgeInsets.symmetric( horizontal: 16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(
-                "Resend in 25s",
-                style: FontStyles.medium400P14(color: AppColors.justGrey60),
+              Obx(()=>
+                Text(
+                  "Resend on ${controller.time.value}s",
+                  style: FontStyles.medium400P14(color: AppColors.justGrey60),
+                ),
               ),
             ],
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
           child: SizedBox(
-            width: MediaQuery.of(context).size.width * 0.9,
+            width: MediaQuery.of(context).size.width * 0.92,
             height: 48,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -181,7 +187,7 @@ class OTPForm extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(8)))),
               onPressed: () {},
               child: Text(
-                'Verufy OTP',
+                'Verify OTP',
                 style: FontStyles.mediumP16(color: AppColors.justGrey10),
               ),
             ),
