@@ -10,6 +10,10 @@ class AppColors{
   static const Color justGrey20 = Color(0xffEFEFF6);
   static const Color green1000 = Color(0xff32AE64);
   static const Color justGrey10 = Color(0xffFCFCFC);
+  static const Color justBlack = Color(0xff0F0F0F);
+  static const Color backgroundDefault = Color(0xffF7F8FB);
+  static const Color grey500 = Color(0xff878787);
+  static const Color grey100 = Color(0xffE7E7E7);
   
 
 }

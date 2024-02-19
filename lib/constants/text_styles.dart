@@ -46,6 +46,18 @@ class FontStyles{
       color: color ?? AppColors.black,
     );
 
+    static TextStyle mediumP12({Color? color}) => GoogleFonts.poppins(
+      fontSize: 12,
+      fontWeight: FontWeight.w500,
+      color: color ?? AppColors.black,
+    );
+
+    static TextStyle medium300P14({Color? color}) => GoogleFonts.poppins(
+      fontSize: 14,
+      fontWeight: FontWeight.w300,
+      color: color ?? AppColors.black,
+    );
+
 
 
     
