@@ -12,5 +12,4 @@ class AppColors{
   static const Color justGrey10 = Color(0xffFCFCFC);
   
 
-
 }

@@ -40,7 +40,7 @@ class FontStyles{
     );
 
 
-    static TextStyle med400P14({Color? color}) => GoogleFonts.poppins(
+    static TextStyle med400P12({Color? color}) => GoogleFonts.poppins(
       fontSize: 12,
       fontWeight: FontWeight.w400,
       color: color ?? AppColors.black,
