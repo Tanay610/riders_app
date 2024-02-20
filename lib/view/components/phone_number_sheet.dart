@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:riders_app/constants/colors.dart';
-import 'package:riders_app/controllers/splash_controller.dart';
+import 'package:riders_app/controllers/otp_controller.dart';
 
 import '../../constants/text_styles.dart';
 
@@ -12,7 +12,7 @@ class R_BottomSheet extends StatelessWidget {
     required this.onNextPressed,
   });
   final VoidCallback onNextPressed;
-  var controller = Get.put(SplashCOntroller());
+  var controller = Get.put(OtpController());
 
   @override
   Widget build(BuildContext context) {
@@ -42,11 +42,18 @@ class R_BottomSheet extends StatelessWidget {
               child: TextField(
                 autofocus: true,
                 keyboardType: TextInputType.phone,
-                onTap: () {
+                onChanged: (value){
+                   if (value.length == 10) {
                   controller.isTextFieldFocused.value = true;
+                } else {
+                  controller.isTextFieldFocused.value = false;
+                }
+                },
+                onTap: () {
+                  // controller.isTextFieldFocused.value = true;
                 },
                 onEditingComplete: () {
-                  controller.isTextFieldFocused.value = false;
+                  // controller.isTextFieldFocused.value = false;
                 },
                 decoration: InputDecoration(
                   prefixIcon: Container(
@@ -73,6 +80,7 @@ class R_BottomSheet extends StatelessWidget {
                     endIndent: 15,
                     indent: 5,
                   ),
+                  
                   hintText: 'Enter mobile number',
                   disabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: AppColors.justGrey40),
@@ -101,7 +109,7 @@ class R_BottomSheet extends StatelessWidget {
                           : AppColors.justGrey20,
                       shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(8)))),
-                  onPressed: onNextPressed,
+                  onPressed: controller.isTextFieldFocused.value?onNextPressed:null,
                   child: Text(
                     'Continue',
                     style: controller.isTextFieldFocused.value

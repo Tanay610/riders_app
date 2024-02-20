@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:riders_app/constants/colors.dart';
-import 'package:riders_app/controllers/splash_controller.dart';
+import 'package:riders_app/controllers/otp_controller.dart';
 import 'package:riders_app/view/components/otp_sheet.dart';
 import 'package:riders_app/view/components/phone_number_sheet.dart';
 
@@ -14,7 +14,7 @@ import '../../constants/text_styles.dart';
 class SplashPage extends StatelessWidget {
   SplashPage({super.key});
 
-  var controller = Get.put(SplashCOntroller());
+  var controller = Get.put(OtpController());
 
   @override
   Widget build(BuildContext context) {

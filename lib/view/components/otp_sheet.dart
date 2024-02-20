@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:riders_app/constants/colors.dart';
 import 'package:riders_app/constants/text_styles.dart';
 import 'package:riders_app/controllers/otp_controller.dart';
-import 'package:riders_app/controllers/time_controller.dart';
 import 'package:riders_app/view/pages/profile_page.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 
@@ -16,7 +15,7 @@ class OTPForm extends StatefulWidget {
 }
 
 class _OTPFormState extends State<OTPForm> {
-  var controller = Get.put(TimerController());
+  TextEditingController fieldController = TextEditingController();
 
   var otpcontroller = Get.put(OtpController());
 
@@ -67,10 +66,11 @@ class _OTPFormState extends State<OTPForm> {
                 width: MediaQuery.of(context).size.width * 0.7,
                 child: PinFieldAutoFill(
                   autoFocus: true,
+                  controller: fieldController,
                     textInputAction: TextInputAction.done,
                     keyboardType: TextInputType.number,
-                    // focusNode: FocusNode(),
-                    currentCode: code,
+                    focusNode: FocusNode(),
+                    currentCode: "",
                     codeLength: 4,
                     cursor: Cursor(
                       width: 2,
@@ -83,11 +83,10 @@ class _OTPFormState extends State<OTPForm> {
                     //   LengthLimitingTextInputFormatter(1),
                     //   FilteringTextInputFormatter.digitsOnly,
                     // ],
-                    // onCodeSubmitted: (code) {},
+                    onCodeSubmitted: (code) {},
                     onCodeChanged: (code) {
-                      // if (code!.length == 4) {
-                      //   FocusScope.of(context).requestFocus(FocusNode());
-                      // }
+                        // FocusScope.of(context).requestFocus(FocusNode());
+                      
                     },
                     decoration: BoxLooseDecoration(
                         strokeColorBuilder:
@@ -103,7 +102,7 @@ class _OTPFormState extends State<OTPForm> {
             children: [
               Obx(
                 () => Text(
-                  "Resend on ${controller.time.value}s",
+                  "Resend on ${otpcontroller.time.value}s",
                   style: FontStyles.medium400P14(color: AppColors.justGrey60),
                 ),
               ),
