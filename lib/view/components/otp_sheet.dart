@@ -43,7 +43,7 @@ class OTPForm extends StatelessWidget{
         ),
         
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -215,7 +215,7 @@ class OTPForm extends StatelessWidget{
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.green1000,
-                  shape: RoundedRectangleBorder(
+                  shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(8)))),
               onPressed: () {
                 Get.to(ProfilePage());

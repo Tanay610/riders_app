@@ -33,7 +33,7 @@ class R_BottomSheet extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
           Padding(
@@ -50,9 +50,9 @@ class R_BottomSheet extends StatelessWidget {
                 },
                 decoration: InputDecoration(
                   prefixIcon: Container(
-                    margin: EdgeInsets.only(top: 5, bottom: 5),
+                    margin: const EdgeInsets.only(top: 5, bottom: 5),
                     height: 15,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       border: Border(right: BorderSide(color: AppColors.justGrey40, ))
                     ),
                     
@@ -66,7 +66,7 @@ class R_BottomSheet extends StatelessWidget {
                       ),
                     ),
                   ),
-                  prefix: VerticalDivider(
+                  prefix: const VerticalDivider(
                     color: Colors.black,
                     width: 10,
                     thickness: 1.0,
@@ -74,20 +74,20 @@ class R_BottomSheet extends StatelessWidget {
                     indent: 5,
                   ),
                   hintText: 'Enter mobile number',
-                  disabledBorder: OutlineInputBorder(
+                  disabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: AppColors.justGrey40),
                       borderRadius: BorderRadius.all(Radius.circular(8))),
-                  focusedBorder: OutlineInputBorder(
+                  focusedBorder: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(8)),
                       borderSide: BorderSide(color: AppColors.green1000)),
-                  enabledBorder: OutlineInputBorder(
+                  enabledBorder: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(8)),
                       borderSide: BorderSide(color: AppColors.justGrey40)),
                 ),
               ),
             ),
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           Obx(
             () => Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -99,7 +99,7 @@ class R_BottomSheet extends StatelessWidget {
                       backgroundColor: controller.isTextFieldFocused.value
                           ? AppColors.green1000
                           : AppColors.justGrey20,
-                      shape: RoundedRectangleBorder(
+                      shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(8)))),
                   onPressed: onNextPressed,
                   child: Text(
@@ -119,7 +119,7 @@ class R_BottomSheet extends StatelessWidget {
               children: [
                 Text('By continuing you agree to ',
                     style: FontStyles.med400P12(color: AppColors.justGrey60)),
-                Text(
+                const Text(
                   "Terms and conditions",
                   style: TextStyle(
                     decoration: TextDecoration.underline,

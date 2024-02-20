@@ -13,19 +13,19 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.backgroundDefault,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(kToolbarHeight),
+        preferredSize: const Size.fromHeight(kToolbarHeight),
         child: Container(
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
                   blurRadius: 16,
                   spreadRadius: 0,
-                  offset: Offset(0, 16),
-                  color: Color(0xff000000).withOpacity(0.05))
+                  offset: const Offset(0, 16),
+                  color: const Color(0xff000000).withOpacity(0.05))
             ]
           ),
           child: AppBar(
-            leading: Icon(Icons.arrow_back),
+            leading: const Icon(Icons.arrow_back),
             title: Text(
               "Profile",
               style: FontStyles.medium14P(color: AppColors.justBlack),
@@ -39,7 +39,7 @@ class ProfilePage extends StatelessWidget {
                       "Edit Details",
                       style: FontStyles.med400P12(color: AppColors.green1000),
                     ),
-                    SizedBox(width: 5.33,),
+                    const SizedBox(width: 5.33,),
                     SizedBox(
                       height: 16,
                       width: 16,
@@ -57,16 +57,16 @@ class ProfilePage extends StatelessWidget {
           Container(
             height: 56,
             width: MediaQuery.of(context).size.width,
-            margin: EdgeInsets.only(top: 16, left: 16, right: 16),
-            padding: EdgeInsets.all(12),
+            margin: const EdgeInsets.only(top: 16, left: 16, right: 16),
+            padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(8)),
+              borderRadius: const BorderRadius.all(Radius.circular(8)),
               color: Colors.white, boxShadow: [
               BoxShadow(
                   blurRadius: 16,
                   spreadRadius: 0,
-                  offset: Offset(0, 8),
-                  color: Color(0xff000000).withOpacity(0.05))
+                  offset: const Offset(0, 8),
+                  color: const Color(0xff000000).withOpacity(0.05))
             ]),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -94,23 +94,23 @@ class ProfilePage extends StatelessWidget {
           Container(
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(8)),
+              borderRadius: const BorderRadius.all(Radius.circular(8)),
               color: Colors.white, boxShadow: [
               BoxShadow(
                   blurRadius: 16,
                   spreadRadius: 0,
-                  offset: Offset(0, 8),
-                  color: Color(0xff000000).withOpacity(0.05))
+                  offset: const Offset(0, 8),
+                  color: const Color(0xff000000).withOpacity(0.05))
             ]),
-            margin: EdgeInsets.all(16),
-            padding: EdgeInsets.all(12),
+            margin: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(12),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 12),
+                    const Padding(
+                      padding: EdgeInsets.only(right: 12),
                       child: CircleAvatar(
                         radius: 30,
                         backgroundColor: AppColors.green1000,
@@ -122,23 +122,23 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 12,),
+                const SizedBox(height: 12,),
                 navigateWidget(
                   "Home Address",
                 ),
-                SizedBox(height: 8,),
+                const SizedBox(height: 8,),
                 Text(
                   "#12, Heritage City, MG Rd. Metro Station, Sector 25, Gurugram, Haryana",
                   style: FontStyles.med400P12(color: AppColors.grey500),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 12),
                   child: Divider(height: 20,
                   color: AppColors.grey100,),
                 ),
                 navigateWidget("Warehouse Address"),
                 
-                SizedBox(height: 12,),
+                const SizedBox(height: 12,),
                 Text(
                   "#12, Heritage City, MG Rd. Metro Station,",
                   
@@ -167,7 +167,7 @@ class ProfilePage extends StatelessWidget {
                 "Navigate",
                 style: FontStyles.mediumP12(color: AppColors.green1000),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 4,
               ),
               SizedBox(
