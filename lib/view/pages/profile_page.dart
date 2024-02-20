@@ -12,31 +12,45 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundDefault,
-      appBar: AppBar(
-        leading: Icon(Icons.arrow_back),
-        title: Text(
-          "Profile",
-          style: FontStyles.medium14P(color: AppColors.justBlack),
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 16),
-            child: Row(
-              children: [
-                Text(
-                  "Edit Details",
-                  style: FontStyles.med400P12(color: AppColors.green1000),
-                ),
-                SizedBox(width: 5.33,),
-                SizedBox(
-                  height: 16,
-                  width: 16,
-                  child: Image.asset("assets/images/Vector.png"),
-                )
-              ],
-            ),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight),
+        child: Container(
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                  blurRadius: 16,
+                  spreadRadius: 0,
+                  offset: Offset(0, 16),
+                  color: Color(0xff000000).withOpacity(0.05))
+            ]
           ),
-        ],
+          child: AppBar(
+            leading: Icon(Icons.arrow_back),
+            title: Text(
+              "Profile",
+              style: FontStyles.medium14P(color: AppColors.justBlack),
+            ),
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(right: 16),
+                child: Row(
+                  children: [
+                    Text(
+                      "Edit Details",
+                      style: FontStyles.med400P12(color: AppColors.green1000),
+                    ),
+                    SizedBox(width: 5.33,),
+                    SizedBox(
+                      height: 16,
+                      width: 16,
+                      child: Image.asset("assets/images/Vector.png"),
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
       body: Column(
         children: [
