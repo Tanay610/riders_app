@@ -69,6 +69,7 @@ class _OTPFormState extends State<OTPForm> {
                 width: MediaQuery.of(context).size.width * 0.7,
                 child: PinFieldAutoFill(
                   textInputAction: TextInputAction.done,
+                  keyboardType: TextInputType.number,
                   focusNode: FocusNode(),
                   currentCode: code,
                   codeLength: 4,
@@ -84,12 +85,8 @@ class _OTPFormState extends State<OTPForm> {
                     FocusScope.of(context).requestFocus(FocusNode());
                   }
                   },
-                  decoration: UnderlineDecoration(
-                    colorBuilder: FixedColorBuilder(Colors.transparent
-                    
-                    ),
-                    bgColorBuilder: FixedColorBuilder(Colors.grey.withOpacity(0.1))
-                    ),
+                  decoration:BoxLooseDecoration(
+                    strokeColorBuilder: FixedColorBuilder(AppColors.justGrey40))
                   
                 ),
               ),
