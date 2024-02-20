@@ -66,27 +66,28 @@ class _OTPFormState extends State<OTPForm> {
                 height: 52,
                 width: MediaQuery.of(context).size.width * 0.7,
                 child: PinFieldAutoFill(
+                  autoFocus: true,
                     textInputAction: TextInputAction.done,
                     keyboardType: TextInputType.number,
-                    focusNode: FocusNode(),
+                    // focusNode: FocusNode(),
                     currentCode: code,
                     codeLength: 4,
                     cursor: Cursor(
                       width: 2,
                       height: 40,
-                      color: Colors.red,
+                      color: Colors.green,
                       radius: Radius.circular(1),
                       enabled: true,
                     ),
-                    inputFormatters: [
-                      LengthLimitingTextInputFormatter(1),
-                      FilteringTextInputFormatter.digitsOnly,
-                    ],
-                    onCodeSubmitted: (code) {},
+                    // inputFormatters: [
+                    //   LengthLimitingTextInputFormatter(1),
+                    //   FilteringTextInputFormatter.digitsOnly,
+                    // ],
+                    // onCodeSubmitted: (code) {},
                     onCodeChanged: (code) {
-                      if (code!.length == 4) {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                      }
+                      // if (code!.length == 4) {
+                      //   FocusScope.of(context).requestFocus(FocusNode());
+                      // }
                     },
                     decoration: BoxLooseDecoration(
                         strokeColorBuilder:
