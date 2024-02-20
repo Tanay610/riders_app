@@ -92,6 +92,7 @@ class R_BottomSheet extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(8)),
                       borderSide: BorderSide(color: AppColors.justGrey40)),
                 ),
+                maxLength: 10,
               ),
             ),
           ),
