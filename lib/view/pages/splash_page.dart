@@ -47,6 +47,8 @@ class SplashPage extends StatelessWidget {
   void _showPhoneNumberBottomSheet(BuildContext context) {
     Timer(const Duration(seconds: 3), () { 
       showModalBottomSheet(
+        isDismissible: false,
+        enableDrag: false,
       isScrollControlled: true,
       context: context,
       builder: (BuildContext context) {
