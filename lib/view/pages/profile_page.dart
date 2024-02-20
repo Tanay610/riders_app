@@ -52,7 +52,7 @@ class ProfilePage extends StatelessWidget {
                   blurRadius: 16,
                   spreadRadius: 0,
                   offset: Offset(0, 8),
-                  color: Color(0xff000000).withOpacity(0.5))
+                  color: Color(0xff000000).withOpacity(0.05))
             ]),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -70,7 +70,6 @@ class ProfilePage extends StatelessWidget {
                   ],
                 ),
                 Switch(value: isOn, onChanged: (ca){
-                  
                 },
                 activeColor:Colors.white,
                 activeTrackColor: AppColors.green1000,
@@ -78,7 +77,7 @@ class ProfilePage extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 15,),
+          SizedBox(height: 16,),
           Container(
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
@@ -88,7 +87,7 @@ class ProfilePage extends StatelessWidget {
                   blurRadius: 16,
                   spreadRadius: 0,
                   offset: Offset(0, 8),
-                  color: Color(0xff000000).withOpacity(0.5))
+                  color: Color(0xff000000).withOpacity(0.05))
             ]),
             margin: EdgeInsets.all(16),
             padding: EdgeInsets.all(12),
