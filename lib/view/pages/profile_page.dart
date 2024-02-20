@@ -123,8 +123,8 @@ class ProfilePage extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 12,),
-                NavigateWidget(
-                  heading: "Home Address",
+                navigateWidget(
+                  "Home Address",
                 ),
                 SizedBox(height: 8,),
                 Text(
@@ -136,7 +136,7 @@ class ProfilePage extends StatelessWidget {
                   child: Divider(height: 20,
                   color: AppColors.grey100,),
                 ),
-                NavigateWidget(heading: "Warehouse Address"),
+                navigateWidget("Warehouse Address"),
                 
                 SizedBox(height: 12,),
                 Text(
@@ -151,18 +151,8 @@ class ProfilePage extends StatelessWidget {
       ),
     );
   }
-}
 
-class NavigateWidget extends StatelessWidget {
-  const NavigateWidget({
-    super.key,
-    required this.heading,
-  });
-
-  final String heading;
-
-  @override
-  Widget build(BuildContext context) {
+  Widget navigateWidget(String heading){
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
