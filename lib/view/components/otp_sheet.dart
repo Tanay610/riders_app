@@ -32,7 +32,7 @@ class _OTPFormState extends State<OTPForm> {
     super.dispose();
   }
 
-  String code= "";
+  String code= "1234";
 
 
   @override
@@ -81,7 +81,7 @@ class _OTPFormState extends State<OTPForm> {
                   },
                   onCodeChanged: (code){
                     if (code!.length == 4) {
-                    FocusScope.of(context).nextFocus();
+                    FocusScope.of(context).requestFocus(FocusNode());
                   }
                   },
                   decoration: UnderlineDecoration(
