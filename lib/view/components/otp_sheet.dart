@@ -63,36 +63,43 @@ class _OTPFormState extends State<OTPForm> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SizedBox(
-                height: 52,
-                width: MediaQuery.of(context).size.width * 0.7,
-                child: PinFieldAutoFill(
-                  autoFocus: true,
-                  controller: fieldController,
-                    textInputAction: TextInputAction.done,
-                    keyboardType: TextInputType.number,
-                    // focusNode: FocusNode(),
-                    currentCode: "",
-                    codeLength: 4,
-                    cursor: Cursor(
-                      width: 2,
-                      height: 40,
-                      color: Colors.green,
-                      radius: Radius.circular(1),
-                      enabled: true,
-                    ),
-                    // inputFormatters: [
-                    //   LengthLimitingTextInputFormatter(1),
-                    //   FilteringTextInputFormatter.digitsOnly,
-                    // ],
-                    onCodeSubmitted: (code) {},
-                    onCodeChanged: (code) {
-                        // FocusScope.of(context).requestFocus(FocusNode());
-                      
-                    },
-                    decoration: BoxLooseDecoration(
-                        strokeColorBuilder:
-                            FixedColorBuilder(AppColors.justGrey40))),
+              Theme(
+                data: ThemeData(
+                  textSelectionTheme: TextSelectionThemeData(
+                    cursorColor: Colors.transparent,
+                  ),
+                ),
+                child: SizedBox(
+                  height: 52,
+                  width: MediaQuery.of(context).size.width * 0.7,
+                  child: PinFieldAutoFill(
+                    autoFocus: true,
+                    controller: fieldController,
+                      textInputAction: TextInputAction.done,
+                      keyboardType: TextInputType.number,
+                      // focusNode: FocusNode(),
+                      currentCode: "",
+                      codeLength: 4,
+                      cursor: Cursor(
+                        width: 2,
+                        height: 40,
+                        color: Colors.green,
+                        radius: Radius.circular(1),
+                        enabled: true,
+                      ),
+                      // inputFormatters: [
+                      //   LengthLimitingTextInputFormatter(1),
+                      //   FilteringTextInputFormatter.digitsOnly,
+                      // ],
+                      onCodeSubmitted: (code) {},
+                      onCodeChanged: (code) {
+                          // FocusScope.of(context).requestFocus(FocusNode());
+                        
+                      },
+                      decoration: BoxLooseDecoration(
+                          strokeColorBuilder:
+                              FixedColorBuilder(AppColors.justGrey40))),
+                ),
               ),
             ],
           ),
