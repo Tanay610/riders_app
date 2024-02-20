@@ -43,7 +43,7 @@ class ProfilePage extends StatelessWidget {
           Container(
             height: 56,
             width: MediaQuery.of(context).size.width,
-            margin: EdgeInsets.all(16),
+            margin: EdgeInsets.only(top: 16, left: 16, right: 16),
             padding: EdgeInsets.all(12),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -77,7 +77,6 @@ class ProfilePage extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 16,),
           Container(
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
