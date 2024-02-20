@@ -8,15 +8,32 @@ import 'package:riders_app/controllers/time_controller.dart';
 import 'package:riders_app/view/pages/profile_page.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 
-class OTPForm extends StatelessWidget{
+class OTPForm extends StatefulWidget{
   OTPForm({super.key});
 
+  @override
+  State<OTPForm> createState() => _OTPFormState();
+}
+
+class _OTPFormState extends State<OTPForm> {
   var controller = Get.put(TimerController());
-  // var otpcontroller = Get.put(OtpController());
 
+  var otpcontroller = Get.put(OtpController());
 
-  String? appSignature;
-  String? otpCode;
+   @override
+  void initState(){
+    super.initState();
+    otpcontroller.listen();
+  }
+
+  @override
+  void dispose() {
+    SmsAutoFill().unregisterListener();
+    super.dispose();
+  }
+
+  String code= "";
+
 
   @override
   Widget build(BuildContext context) {
@@ -49,147 +66,34 @@ class OTPForm extends StatelessWidget{
             children: [
               SizedBox(
                 height: 52,
-                width: 52,
-                child: TextFormField(
-                  onChanged: (value) {
-                      // otpcontroller.codeUpdated();
-                      // value = otpcontroller.code!;
-                  //     if (otpCode!.length == 4) {
-                  //   FocusScope.of(context).requestFocus(FocusNode());
-                  // }
-                    if (value.length == 1) {
-                      FocusScope.of(context).nextFocus();
-                    }
-                  },
-                  keyboardType: TextInputType.number,
-                  onSaved: (pin1) {},
-                  decoration: const InputDecoration(
-                      // fillColor: Color(0xFFF4F4F4),
-                      // filled: true,
-                      border: InputBorder.none,
-                      disabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: AppColors.justGrey40),
-                      borderRadius: BorderRadius.all(Radius.circular(8))),
-                      focusedBorder: OutlineInputBorder(
-                        
-                        borderSide: BorderSide(color: AppColors.green1000, ),
-                        borderRadius: BorderRadius.all(Radius.circular(8)),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        
-                        borderSide: BorderSide(color: AppColors.justGrey40),
-                          borderRadius: BorderRadius.all(Radius.circular(8)))),
-                  textAlign: TextAlign.center,
+                width: MediaQuery.of(context).size.width * 0.7,
+                child: PinFieldAutoFill(
+                  textInputAction: TextInputAction.done,
+                  focusNode: FocusNode(),
+                  currentCode: code,
+                  codeLength: 4,
                   inputFormatters: [
                     LengthLimitingTextInputFormatter(1),
                     FilteringTextInputFormatter.digitsOnly,
                   ],
+                  onCodeSubmitted: (code){
+      
+                  },
+                  onCodeChanged: (code){
+                    if (code!.length == 4) {
+                    FocusScope.of(context).nextFocus();
+                  }
+                  },
+                  decoration: UnderlineDecoration(
+                    colorBuilder: FixedColorBuilder(Colors.transparent
+                    
+                    ),
+                    bgColorBuilder: FixedColorBuilder(Colors.grey.withOpacity(0.1))
+                    ),
+                  
                 ),
               ),
-              SizedBox(
-                height: 52,
-                width: 52,
-                child: TextFormField(
-                  onChanged: (value) {
-                    //   otpcontroller.codeUpdated();
-                    // value = otpcontroller.code!;
-                    if (value.length == 1) {
-                      FocusScope.of(context).nextFocus();
-                    }
-                  },
-                  keyboardType: TextInputType.number,
-                  onSaved: (pin1) {},
-                  decoration: const InputDecoration(
-                      // fillColor: Color(0xFFF4F4F4),
-                      // filled: true,
-                      border: InputBorder.none,
-                      disabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: AppColors.justGrey40),
-                      borderRadius: BorderRadius.all(Radius.circular(8))),
-                      focusedBorder: OutlineInputBorder(
-                        
-                        borderSide: BorderSide(color: AppColors.green1000),
-                          borderRadius: BorderRadius.all(Radius.circular(8))),
-                      enabledBorder: OutlineInputBorder(
-                        
-                        borderSide: BorderSide(color: AppColors.justGrey40),
-                          borderRadius: BorderRadius.all(Radius.circular(8)))),
-                  textAlign: TextAlign.center,
-                  inputFormatters: [
-                    LengthLimitingTextInputFormatter(1),
-                    FilteringTextInputFormatter.digitsOnly,
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 52,
-                width: 52,
-                child: TextFormField(
-                  onChanged: (value) {
-                    //   otpcontroller.codeUpdated();
-                    // value = otpcontroller.code!;
-                    if (value.length == 1) {
-                      FocusScope.of(context).nextFocus();
-                    }
-                  },
-                  keyboardType: TextInputType.number,
-                  onSaved: (pin1) {},
-                  decoration: const InputDecoration(
-                      // fillColor: Color(0xFFF4F4F4),
-                      // filled: true,
-                      border: InputBorder.none,
-                      disabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: AppColors.justGrey40),
-                      borderRadius: BorderRadius.all(Radius.circular(8))),
-                      focusedBorder: OutlineInputBorder(
-                        
-                        borderSide: BorderSide(color: AppColors.green1000),
-                          borderRadius: BorderRadius.all(Radius.circular(8))),
-                      enabledBorder: OutlineInputBorder(
-                        
-                        borderSide: BorderSide(color: AppColors.justGrey40),
-                          borderRadius: BorderRadius.all(Radius.circular(8)))),
-                  textAlign: TextAlign.center,
-                  inputFormatters: [
-                    LengthLimitingTextInputFormatter(1),
-                    FilteringTextInputFormatter.digitsOnly,
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 52,
-                width: 52,
-                child: TextFormField(
-                  onChanged: (value) {
-                    //   otpcontroller.codeUpdated();
-                    // value = otpcontroller.code!;
-                    if (value.length == 1) {
-                      FocusScope.of(context).nextFocus();
-                    }
-                  },
-                  keyboardType: TextInputType.number,
-                  onSaved: (pin1) {},
-                  decoration: const InputDecoration(
-                      // fillColor: Color(0xFFF4F4F4),
-                      // filled: true,
-                      border: InputBorder.none,
-                      
-                  disabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: AppColors.justGrey40),
-                      borderRadius: BorderRadius.all(Radius.circular(8))),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color:AppColors.green1000 ),
-                          borderRadius: BorderRadius.all(Radius.circular(8))),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: AppColors.justGrey40),
-                          borderRadius: BorderRadius.all(Radius.circular(8)))),
-                  textAlign: TextAlign.center,
-                  inputFormatters: [
-                    LengthLimitingTextInputFormatter(1),
-                    FilteringTextInputFormatter.digitsOnly,
-                  ],
-                ),
-              )
+              
             ],
           ),
         ),
@@ -230,5 +134,7 @@ class OTPForm extends StatelessWidget{
       ],
     );
   }
-  
 }
+
+
+
