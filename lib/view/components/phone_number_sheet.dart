@@ -127,7 +127,7 @@ class R_BottomSheet extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                     color: AppColors.justGrey60,
                   ),
-                )
+                ),
               ],
             ),
           ),

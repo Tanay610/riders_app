@@ -24,7 +24,7 @@ class OTPForm extends StatelessWidget{
       mainAxisSize: MainAxisSize.min ,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 16, top: 16),
+          padding: const EdgeInsets.only(left: 16, top: 16, right: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -54,6 +54,9 @@ class OTPForm extends StatelessWidget{
                   onChanged: (value) {
                       // otpcontroller.codeUpdated();
                       // value = otpcontroller!.code;
+                  //     if (otpCode!.length == 4) {
+                  //   FocusScope.of(context).requestFocus(FocusNode());
+                  // }
                     if (value.length == 1) {
                       FocusScope.of(context).nextFocus();
                     }

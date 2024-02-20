@@ -4,7 +4,7 @@ import 'package:sms_autofill/sms_autofill.dart';
 
 class OtpController extends GetxController with CodeAutoFill{
   RxString? appSignature;
-  RxString? otpCode;
+  RxString otpCode = ''.obs;
 
   @override
   void onInit() {
@@ -18,7 +18,7 @@ class OtpController extends GetxController with CodeAutoFill{
   
   @override
   void codeUpdated() {
-    otpCode!.value = code!;
+    otpCode.value = code!;
   }
 
 }
