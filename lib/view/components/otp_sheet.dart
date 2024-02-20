@@ -44,11 +44,13 @@ class _OTPFormState extends State<OTPForm> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Enter OTP sent to 827392329",
+                "Enter OTP sent to ${otpcontroller.phoneNumber}",
                 style: FontStyles.medium14P(color: AppColors.black),
               ),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    otpcontroller.isOtp.value=false;
+                  },
                   child: Text(
                     "Change",
                     style: FontStyles.medium14P(color: AppColors.green1000),
@@ -69,7 +71,7 @@ class _OTPFormState extends State<OTPForm> {
                   controller: fieldController,
                     textInputAction: TextInputAction.done,
                     keyboardType: TextInputType.number,
-                    focusNode: FocusNode(),
+                    // focusNode: FocusNode(),
                     currentCode: "",
                     codeLength: 4,
                     cursor: Cursor(

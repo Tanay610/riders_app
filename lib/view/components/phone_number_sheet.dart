@@ -13,6 +13,7 @@ class R_BottomSheet extends StatelessWidget {
   });
   final VoidCallback onNextPressed;
   var controller = Get.put(OtpController());
+  TextEditingController phoneControl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +41,7 @@ class R_BottomSheet extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: SizedBox(
               child: TextField(
+                controller: phoneControl,
                 autofocus: true,
                 keyboardType: TextInputType.phone,
                 onChanged: (value){
@@ -110,7 +112,10 @@ class R_BottomSheet extends StatelessWidget {
                           : AppColors.justGrey20,
                       shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(8)))),
-                  onPressed: controller.isTextFieldFocused.value?onNextPressed:null,
+                  onPressed: controller.isTextFieldFocused.value?(){
+                    onNextPressed();
+                    controller.number(phoneControl.text);
+                  }:null,
                   child: Text(
                     'Continue',
                     style: controller.isTextFieldFocused.value
