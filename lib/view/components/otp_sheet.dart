@@ -67,6 +67,8 @@ class _OTPFormState extends State<OTPForm> {
                 data: ThemeData(
                   textSelectionTheme: const TextSelectionThemeData(
                     cursorColor: Colors.transparent,
+                    selectionHandleColor: Colors.transparent,
+                    selectionColor: Colors.transparent,
                   ),
                 ),
                 child: SizedBox(
@@ -74,6 +76,7 @@ class _OTPFormState extends State<OTPForm> {
                   width: MediaQuery.of(context).size.width * 0.7,
                   child: PinFieldAutoFill(
                     autoFocus: true,
+                    enableInteractiveSelection: false,
                     controller: fieldController,
                     textInputAction: TextInputAction.done,
                     keyboardType: TextInputType.number,
