@@ -4,16 +4,16 @@ import 'package:sms_autofill/sms_autofill.dart';
 
 class OtpController extends GetxController with CodeAutoFill{
   RxString? appSignature;
-  RxString otpCode = ''.obs;
+  RxString otpCode = '1234'.obs;
 
   @override
   void onInit() {
     super.onInit();
     listenForCode();
 
-    SmsAutoFill().getAppSignature.then((signature) {
-        appSignature!.value = signature;
-    });
+    // SmsAutoFill().getAppSignature.then((signature) {
+    //     appSignature!.value = signature;
+    // });
   }
   
   @override

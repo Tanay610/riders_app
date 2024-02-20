@@ -53,7 +53,7 @@ class OTPForm extends StatelessWidget{
                 child: TextFormField(
                   onChanged: (value) {
                       // otpcontroller.codeUpdated();
-                      // value = otpcontroller!.code;
+                      // value = otpcontroller.code!;
                   //     if (otpCode!.length == 4) {
                   //   FocusScope.of(context).requestFocus(FocusNode());
                   // }
@@ -92,7 +92,7 @@ class OTPForm extends StatelessWidget{
                 child: TextFormField(
                   onChanged: (value) {
                     //   otpcontroller.codeUpdated();
-                    // value = otpcontroller!.code;
+                    // value = otpcontroller.code!;
                     if (value.length == 1) {
                       FocusScope.of(context).nextFocus();
                     }
@@ -127,6 +127,7 @@ class OTPForm extends StatelessWidget{
                 child: TextFormField(
                   onChanged: (value) {
                     //   otpcontroller.codeUpdated();
+                    // value = otpcontroller.code!;
                     if (value.length == 1) {
                       FocusScope.of(context).nextFocus();
                     }
@@ -161,7 +162,7 @@ class OTPForm extends StatelessWidget{
                 child: TextFormField(
                   onChanged: (value) {
                     //   otpcontroller.codeUpdated();
-                    // value = otpcontroller!.code;
+                    // value = otpcontroller.code!;
                     if (value.length == 1) {
                       FocusScope.of(context).nextFocus();
                     }
