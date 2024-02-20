@@ -3,13 +3,20 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:riders_app/constants/colors.dart';
 import 'package:riders_app/constants/text_styles.dart';
+import 'package:riders_app/controllers/otp_controller.dart';
 import 'package:riders_app/controllers/time_controller.dart';
 import 'package:riders_app/view/pages/profile_page.dart';
+import 'package:sms_autofill/sms_autofill.dart';
 
-class OTPForm extends StatelessWidget {
+class OTPForm extends StatelessWidget{
   OTPForm({super.key});
 
   var controller = Get.put(TimerController());
+  // var otpcontroller = Get.put(OtpController());
+
+
+  String? appSignature;
+  String? otpCode;
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +52,8 @@ class OTPForm extends StatelessWidget {
                 width: 52,
                 child: TextFormField(
                   onChanged: (value) {
+                      // otpcontroller.codeUpdated();
+                      // value = otpcontroller!.code;
                     if (value.length == 1) {
                       FocusScope.of(context).nextFocus();
                     }
@@ -79,6 +88,8 @@ class OTPForm extends StatelessWidget {
                 width: 52,
                 child: TextFormField(
                   onChanged: (value) {
+                    //   otpcontroller.codeUpdated();
+                    // value = otpcontroller!.code;
                     if (value.length == 1) {
                       FocusScope.of(context).nextFocus();
                     }
@@ -112,6 +123,7 @@ class OTPForm extends StatelessWidget {
                 width: 52,
                 child: TextFormField(
                   onChanged: (value) {
+                    //   otpcontroller.codeUpdated();
                     if (value.length == 1) {
                       FocusScope.of(context).nextFocus();
                     }
@@ -145,6 +157,8 @@ class OTPForm extends StatelessWidget {
                 width: 52,
                 child: TextFormField(
                   onChanged: (value) {
+                    //   otpcontroller.codeUpdated();
+                    // value = otpcontroller!.code;
                     if (value.length == 1) {
                       FocusScope.of(context).nextFocus();
                     }
@@ -212,4 +226,5 @@ class OTPForm extends StatelessWidget {
       ],
     );
   }
+  
 }
