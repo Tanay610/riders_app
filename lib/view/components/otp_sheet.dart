@@ -8,7 +8,7 @@ import 'package:riders_app/controllers/time_controller.dart';
 import 'package:riders_app/view/pages/profile_page.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 
-class OTPForm extends StatefulWidget{
+class OTPForm extends StatefulWidget {
   OTPForm({super.key});
 
   @override
@@ -20,8 +20,8 @@ class _OTPFormState extends State<OTPForm> {
 
   var otpcontroller = Get.put(OtpController());
 
-   @override
-  void initState(){
+  @override
+  void initState() {
     super.initState();
     otpcontroller.listen();
   }
@@ -32,13 +32,12 @@ class _OTPFormState extends State<OTPForm> {
     super.dispose();
   }
 
-  String code= "1234";
-
+  String code = "1234";
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisSize: MainAxisSize.min ,
+      mainAxisSize: MainAxisSize.min,
       children: [
         Padding(
           padding: const EdgeInsets.only(left: 16, top: 16, right: 10),
@@ -58,7 +57,6 @@ class _OTPFormState extends State<OTPForm> {
             ],
           ),
         ),
-        
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
           child: Row(
@@ -68,39 +66,42 @@ class _OTPFormState extends State<OTPForm> {
                 height: 52,
                 width: MediaQuery.of(context).size.width * 0.7,
                 child: PinFieldAutoFill(
-                  textInputAction: TextInputAction.done,
-                  keyboardType: TextInputType.number,
-                  focusNode: FocusNode(),
-                  currentCode: code,
-                  codeLength: 4,
-                  inputFormatters: [
-                    LengthLimitingTextInputFormatter(1),
-                    FilteringTextInputFormatter.digitsOnly,
-                  ],
-                  onCodeSubmitted: (code){
-      
-                  },
-                  onCodeChanged: (code){
-                    if (code!.length == 4) {
-                    FocusScope.of(context).requestFocus(FocusNode());
-                  }
-                  },
-                  decoration:BoxLooseDecoration(
-                    strokeColorBuilder: FixedColorBuilder(AppColors.justGrey40))
-                  
-                ),
+                    textInputAction: TextInputAction.done,
+                    keyboardType: TextInputType.number,
+                    focusNode: FocusNode(),
+                    currentCode: code,
+                    codeLength: 4,
+                    cursor: Cursor(
+                      width: 2,
+                      height: 40,
+                      color: Colors.red,
+                      radius: Radius.circular(1),
+                      enabled: true,
+                    ),
+                    inputFormatters: [
+                      LengthLimitingTextInputFormatter(1),
+                      FilteringTextInputFormatter.digitsOnly,
+                    ],
+                    onCodeSubmitted: (code) {},
+                    onCodeChanged: (code) {
+                      if (code!.length == 4) {
+                        FocusScope.of(context).requestFocus(FocusNode());
+                      }
+                    },
+                    decoration: BoxLooseDecoration(
+                        strokeColorBuilder:
+                            FixedColorBuilder(AppColors.justGrey40))),
               ),
-              
             ],
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric( horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Obx(()=>
-                Text(
+              Obx(
+                () => Text(
                   "Resend on ${controller.time.value}s",
                   style: FontStyles.medium400P14(color: AppColors.justGrey60),
                 ),
@@ -132,6 +133,3 @@ class _OTPFormState extends State<OTPForm> {
     );
   }
 }
-
-
-
