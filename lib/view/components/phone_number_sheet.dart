@@ -34,7 +34,7 @@ class R_BottomSheet extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: 16,
+            height: 8,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
