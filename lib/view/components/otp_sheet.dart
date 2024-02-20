@@ -55,9 +55,12 @@ class OTPForm extends StatelessWidget {
                       // fillColor: Color(0xFFF4F4F4),
                       // filled: true,
                       border: InputBorder.none,
+                      disabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.justGrey40),
+                      borderRadius: BorderRadius.all(Radius.circular(8))),
                       focusedBorder: OutlineInputBorder(
                         
-                        borderSide: BorderSide(color: AppColors.justGrey40, ),
+                        borderSide: BorderSide(color: AppColors.green1000, ),
                         borderRadius: BorderRadius.all(Radius.circular(8)),
                       ),
                       enabledBorder: OutlineInputBorder(
@@ -86,9 +89,12 @@ class OTPForm extends StatelessWidget {
                       // fillColor: Color(0xFFF4F4F4),
                       // filled: true,
                       border: InputBorder.none,
+                      disabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.justGrey40),
+                      borderRadius: BorderRadius.all(Radius.circular(8))),
                       focusedBorder: OutlineInputBorder(
                         
-                        borderSide: BorderSide(color: AppColors.justGrey40),
+                        borderSide: BorderSide(color: AppColors.green1000),
                           borderRadius: BorderRadius.all(Radius.circular(8))),
                       enabledBorder: OutlineInputBorder(
                         
@@ -116,9 +122,12 @@ class OTPForm extends StatelessWidget {
                       // fillColor: Color(0xFFF4F4F4),
                       // filled: true,
                       border: InputBorder.none,
+                      disabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.justGrey40),
+                      borderRadius: BorderRadius.all(Radius.circular(8))),
                       focusedBorder: OutlineInputBorder(
                         
-                        borderSide: BorderSide(color: AppColors.justGrey40),
+                        borderSide: BorderSide(color: AppColors.green1000),
                           borderRadius: BorderRadius.all(Radius.circular(8))),
                       enabledBorder: OutlineInputBorder(
                         
@@ -146,8 +155,12 @@ class OTPForm extends StatelessWidget {
                       // fillColor: Color(0xFFF4F4F4),
                       // filled: true,
                       border: InputBorder.none,
+                      
+                  disabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.justGrey40),
+                      borderRadius: BorderRadius.all(Radius.circular(8))),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color:AppColors.justGrey40 ),
+                        borderSide: BorderSide(color:AppColors.green1000 ),
                           borderRadius: BorderRadius.all(Radius.circular(8))),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: AppColors.justGrey40),

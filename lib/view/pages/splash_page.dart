@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -16,6 +18,7 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    _showPhoneNumberBottomSheet(context);
     return Scaffold(
       backgroundColor: AppColors.green1000,
       body: Center(
@@ -28,16 +31,11 @@ class SplashPage extends StatelessWidget {
                 height: 34,
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                _showPhoneNumberBottomSheet(context);
-              },
-              child: Padding(
-                padding: const EdgeInsets.only(left: 14),
-                child: Text(
-                  "Riders App",
-                  style: FontStyles.splashTitle(color: AppColors.sTitleColor),
-                ),
+            Padding(
+              padding: const EdgeInsets.only(left: 14),
+              child: Text(
+                "Riders App",
+                style: FontStyles.splashTitle(color: AppColors.sTitleColor),
               ),
             ),
           ],
@@ -47,7 +45,8 @@ class SplashPage extends StatelessWidget {
   }
 
   void _showPhoneNumberBottomSheet(BuildContext context) {
-    showModalBottomSheet(
+    Timer(Duration(seconds: 3), () { 
+      showModalBottomSheet(
       isScrollControlled: true,
       context: context,
       builder: (BuildContext context) {
@@ -63,5 +62,6 @@ class SplashPage extends StatelessWidget {
         );
       },
     );
+    });
   }
 }
