@@ -6,8 +6,8 @@ import 'package:riders_app/controllers/otp_controller.dart';
 
 import '../../constants/text_styles.dart';
 
-class R_BottomSheet extends StatelessWidget {
-  R_BottomSheet({
+class PhoneBottomSheet extends StatelessWidget {
+  PhoneBottomSheet({
     super.key,
     required this.onNextPressed,
   });

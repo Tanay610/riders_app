@@ -58,7 +58,7 @@ class SplashPage extends StatelessWidget {
                   bottom: MediaQuery.of(context).viewInsets.bottom),
               child: controller.isOtp.value
                   ? OTPForm()
-                  : R_BottomSheet(
+                  : PhoneBottomSheet(
                       onNextPressed: controller.isSwitched,
                     )),
         );
