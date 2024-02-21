@@ -6,6 +6,7 @@ import 'package:riders_app/constants/colors.dart';
 import 'package:riders_app/constants/text_styles.dart';
 import 'package:riders_app/controllers/otp_controller.dart';
 import 'package:riders_app/utils/get_string.dart';
+import 'package:riders_app/view/components/custom_color_builder.dart';
 import 'package:riders_app/view/pages/profile_page.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 
@@ -30,7 +31,7 @@ class OTPForm extends GetView<OtpController> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "${getString("enter otp sent to")} ${controller.phoneNumber}",
+                "${getString("enter_otp_sent_to")} ${controller.phoneNumber}",
                 style: FontStyles.medium14P(color: AppColors.black),
               ),
               TextButton(
@@ -38,7 +39,7 @@ class OTPForm extends GetView<OtpController> {
                     controller.isOtp.value = false;
                   },
                   child: Text(
-                    getString("Change"),
+                    getString("change"),
                     style: FontStyles.medium14P(color: AppColors.green1000),
                   ))
             ],
@@ -50,7 +51,7 @@ class OTPForm extends GetView<OtpController> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                  Obx(()=>Theme(
+                 Theme(
                     data: ThemeData(
                       textSelectionTheme: const TextSelectionThemeData(
                         cursorColor: Colors.transparent,
@@ -88,13 +89,15 @@ class OTPForm extends GetView<OtpController> {
                           // FocusScope.of(context).requestFocus(FocusNode());
                         },
                         decoration: BoxLooseDecoration(
-                            strokeColorBuilder:FixedColorBuilder(controller.hasFocus.value?AppColors.green1000:AppColors.justGrey40)),
+                            strokeColorBuilder:PinListenColorBuilder(AppColors.green1000, AppColors.justGrey40)),
                       ),
                     ),
-                  ),),
+                  ),
               ],
             ),
           ),
+
+          //FixedColorBuilder(controller.hasFocus.value?AppColors.green1000:AppColors.justGrey40)
         
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -103,7 +106,7 @@ class OTPForm extends GetView<OtpController> {
             children: [
               Obx(
                 () => controller.isResendEnabled.value?SizedBox():Text(
-                  "${getString("Resend")} ${controller.time.value}s",
+                  "${getString("resend")} ${controller.time.value}s",
                   style: FontStyles.medium400P14(color: AppColors.justGrey60),
                 ),
               ),
@@ -111,7 +114,7 @@ class OTPForm extends GetView<OtpController> {
               () => controller.isResendEnabled.value
                   ? TextButton(
                       onPressed: controller.resendOTP,
-                      child: Text("${getString("Resend")}", style: TextStyle(color: Colors.green)),
+                      child: Text("${getString("resend_otp")}", style: TextStyle(color: Colors.green)),
                     )
                   : SizedBox.shrink(),
             ),
@@ -129,10 +132,10 @@ class OTPForm extends GetView<OtpController> {
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(8)))),
               onPressed: () {
-                Get.to(ProfilePage());
+                Get.to(()=>ProfilePage());
               },
               child: Text(
-                getString("Verify"),
+                getString("verify"),
                 style: FontStyles.mediumP16(color: AppColors.justGrey10),
               ),
             ),

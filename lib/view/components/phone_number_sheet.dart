@@ -28,7 +28,7 @@ class PhoneBottomSheet extends GetView<OtpController> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                 child: Text(
-                  getString("Login Sign"),
+                  getString("login_sign"),
                   style: FontStyles.medium14P(color: AppColors.grey800),
                 ),
               ),
@@ -117,7 +117,7 @@ class PhoneBottomSheet extends GetView<OtpController> {
                     controller.number(phoneControl.text);
                   }:null,
                   child: Text(
-                    getString("Continue"),
+                    getString("continue"),
                     style: controller.isTextFieldFocused.value
                         ? FontStyles.mediumP16(color: AppColors.justGrey10)
                         : FontStyles.mediumP16(color: AppColors.justGrey60),
@@ -131,11 +131,11 @@ class PhoneBottomSheet extends GetView<OtpController> {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             child: Row(
               children: [
-                Text(getString("by Continue"),
+                Text(getString("by_continue"),
                     style: FontStyles.med400P12(color: AppColors.justGrey60)),
                  Text(
                   getString("terms"),
-                  style: TextStyle(
+                  style: const TextStyle(
                     decoration: TextDecoration.underline,
                     fontSize: 12,
                     fontWeight: FontWeight.w400,

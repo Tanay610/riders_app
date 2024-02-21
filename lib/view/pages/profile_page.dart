@@ -30,7 +30,7 @@ class ProfilePage extends GetView<OtpController> {
           child: AppBar(
             leading: const Icon(Icons.arrow_back),
             title: Text(
-              getString("Profile"),
+              getString("profile"),
               style: FontStyles.medium14P(color: AppColors.justBlack),
             ),
             actions: [
@@ -39,7 +39,7 @@ class ProfilePage extends GetView<OtpController> {
                 child: Row(
                   children: [
                     Text(
-                      getString("Edit Details"),
+                      getString("edit_details"),
                       style: FontStyles.med400P12(color: AppColors.green1000),
                     ),
                     const SizedBox(width: 5.33,),
@@ -77,11 +77,11 @@ class ProfilePage extends GetView<OtpController> {
                 Row(
                   children: [
                     Text(
-                  "${getString("Duty Status")} :",
+                  "${getString("duty_status")} :",
                   style: FontStyles.medium300P14(color: AppColors.green1000),
                 ),
                 Text(
-                  getString("Ongoing"),
+                  getString("ongoing"),
                   style: FontStyles.medium14P(color: AppColors.green1000),
                 ),
                   ],
@@ -127,7 +127,7 @@ class ProfilePage extends GetView<OtpController> {
                 ),
                 const SizedBox(height: 12,),
                 navigateWidget(
-                  getString("Home Address"),
+                  getString("home_address"),
                 ),
                 const SizedBox(height: 8,),
                 Text(
@@ -139,7 +139,7 @@ class ProfilePage extends GetView<OtpController> {
                   child: Divider(height: 20,
                   color: AppColors.grey100,),
                 ),
-                navigateWidget(getString("Warehouse Address")),
+                navigateWidget(getString("ware_address")),
                 
                 const SizedBox(height: 12,),
                 Text(
@@ -167,7 +167,7 @@ class ProfilePage extends GetView<OtpController> {
           child: Row(
             children: [
               Text(
-                getString("Navigate"),
+                getString("navigate"),
                 style: FontStyles.mediumP12(color: AppColors.green1000),
               ),
               const SizedBox(

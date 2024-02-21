@@ -1,19 +1,20 @@
 {
-    "enter otp sent to":"Enter OTP sent to",
-    "Change":"Change",
-    "Resend":"Resend on",
-    "Verify": "Verify OTP",
-    "Login Sign":"Login or Sign Up",
-    "Continue":"Continue",
-    "by Continue": "By continuing you agree to ",
+    "enter_otp_sent_to":"Enter OTP sent to",
+    "change":"Change",
+    "resend":"Resend on",
+    "resend_otp": "Resend OTP",
+    "verify": "Verify OTP",
+    "login_sign":"Login or Sign Up",
+    "continue":"Continue",
+    "by_continue": "By continuing you agree to ",
     "terms": "Terms and conditions",
-    "Profile":"Profile",
-    "Edit Details":"Edit Details",
-    "Duty Status": "Duty Status",
-    "Ongoing": "Ongoing",
-    "Home Address":"Home Address",
-    "Warehouse Address":"Warehouse Address",
-    "Navigate": "Navigate"
+    "profile":"Profile",
+    "edit_details":"Edit Details",
+    "duty_status": "Duty Status",
+    "ongoing": "Ongoing",
+    "home_address":"Home Address",
+    "ware_address":"Warehouse Address",
+    "navigate": "Navigate"
 
 
   }
