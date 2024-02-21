@@ -89,7 +89,7 @@ class OTPForm extends GetView<OtpController> {
                           // FocusScope.of(context).requestFocus(FocusNode());
                         },
                         decoration: BoxLooseDecoration(
-                            strokeColorBuilder:PinListenColorBuilder(AppColors.green1000, AppColors.justGrey40)),
+                            strokeColorBuilder:CustomColorBuilder(AppColors.green1000, AppColors.justGrey40)),
                       ),
                     ),
                   ),
