@@ -131,7 +131,7 @@ class PhoneBottomSheet extends GetView<OtpController> {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             child: Row(
               children: [
-                Text(getString("byContinue"),
+                Text(getString("by Continue"),
                     style: FontStyles.med400P12(color: AppColors.justGrey60)),
                  Text(
                   getString("terms"),
