@@ -1,6 +1,7 @@
 
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 
@@ -8,12 +9,14 @@ class OtpController extends GetxController with CodeAutoFill{
   RxString? appSignature;
   RxString otpCode = '1234'.obs;
   RxString phoneNumber = ''.obs;
+  FocusNode focusNode = FocusNode();
   
   String signature = "{{ app signature }}";
 
-   RxBool isTextFieldFocused = false.obs;
+  RxBool isTextFieldFocused = false.obs;
   RxBool isOtp = false.obs;
-   RxBool isResendEnabled = false.obs;
+  RxBool isResendEnabled = false.obs;
+  RxBool hasFocus = false.obs;
   
   Timer? _timer;
   int remainingSeconds = 1;
@@ -27,17 +30,25 @@ class OtpController extends GetxController with CodeAutoFill{
   @override
   void onInit() {
     super.onInit();
+    listen(); 
+    focusNode = FocusNode();
+     focusNode.addListener(() {
+      hasFocus.value = focusNode.hasFocus;
+    });
   }
 
    @override
   void onReady() {
-    _startTimer(25);
     super.onReady();
+    
+    _startTimer(25);
   }
 
   @override
   void onClose() {
-      _timer!.cancel();
+    focusNode.dispose();
+    _timer!.cancel();
+    SmsAutoFill().unregisterListener();
     super.onClose();
   }
 

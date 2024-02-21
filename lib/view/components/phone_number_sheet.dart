@@ -3,16 +3,16 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:riders_app/constants/colors.dart';
 import 'package:riders_app/controllers/otp_controller.dart';
+import 'package:riders_app/utils/get_string.dart';
 
 import '../../constants/text_styles.dart';
 
-class PhoneBottomSheet extends StatelessWidget {
+class PhoneBottomSheet extends GetView<OtpController> {
   PhoneBottomSheet({
     super.key,
     required this.onNextPressed,
   });
   final VoidCallback onNextPressed;
-  var controller = Get.put(OtpController());
   TextEditingController phoneControl = TextEditingController();
 
   @override
@@ -28,7 +28,7 @@ class PhoneBottomSheet extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                 child: Text(
-                  'Login or Sign Up',
+                  getString("Login Sign"),
                   style: FontStyles.medium14P(color: AppColors.grey800),
                 ),
               ),
@@ -117,7 +117,7 @@ class PhoneBottomSheet extends StatelessWidget {
                     controller.number(phoneControl.text);
                   }:null,
                   child: Text(
-                    'Continue',
+                    getString("Continue"),
                     style: controller.isTextFieldFocused.value
                         ? FontStyles.mediumP16(color: AppColors.justGrey10)
                         : FontStyles.mediumP16(color: AppColors.justGrey60),
@@ -131,10 +131,10 @@ class PhoneBottomSheet extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             child: Row(
               children: [
-                Text('By continuing you agree to ',
+                Text(getString("byContinue"),
                     style: FontStyles.med400P12(color: AppColors.justGrey60)),
-                const Text(
-                  "Terms and conditions",
+                 Text(
+                  getString("terms"),
                   style: TextStyle(
                     decoration: TextDecoration.underline,
                     fontSize: 12,

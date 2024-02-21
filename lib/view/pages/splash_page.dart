@@ -11,7 +11,7 @@ import 'package:riders_app/view/components/phone_number_sheet.dart';
 
 import '../../constants/text_styles.dart';
 
-class SplashPage extends StatelessWidget {
+class SplashPage extends GetView<OtpController> {
   SplashPage({super.key});
 
   var controller = Get.put(OtpController());

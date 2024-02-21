@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:riders_app/constants/colors.dart';
 import 'package:riders_app/constants/text_styles.dart';
+import 'package:riders_app/controllers/otp_controller.dart';
+import 'package:riders_app/utils/get_string.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends GetView<OtpController> {
   ProfilePage({super.key});
 
   bool isOn = true;
@@ -27,7 +30,7 @@ class ProfilePage extends StatelessWidget {
           child: AppBar(
             leading: const Icon(Icons.arrow_back),
             title: Text(
-              "Profile",
+              getString("Profile"),
               style: FontStyles.medium14P(color: AppColors.justBlack),
             ),
             actions: [
@@ -36,7 +39,7 @@ class ProfilePage extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      "Edit Details",
+                      getString("Edit Details"),
                       style: FontStyles.med400P12(color: AppColors.green1000),
                     ),
                     const SizedBox(width: 5.33,),
@@ -74,11 +77,11 @@ class ProfilePage extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                  "Duty Status :",
+                  "${getString("Duty Status")} :",
                   style: FontStyles.medium300P14(color: AppColors.green1000),
                 ),
                 Text(
-                  "Ongoing",
+                  getString("Ongoing"),
                   style: FontStyles.medium14P(color: AppColors.green1000),
                 ),
                   ],
@@ -124,7 +127,7 @@ class ProfilePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 12,),
                 navigateWidget(
-                  "Home Address",
+                  getString("Home Address"),
                 ),
                 const SizedBox(height: 8,),
                 Text(
@@ -136,7 +139,7 @@ class ProfilePage extends StatelessWidget {
                   child: Divider(height: 20,
                   color: AppColors.grey100,),
                 ),
-                navigateWidget("Warehouse Address"),
+                navigateWidget(getString("Warehouse Address")),
                 
                 const SizedBox(height: 12,),
                 Text(
@@ -164,7 +167,7 @@ class ProfilePage extends StatelessWidget {
           child: Row(
             children: [
               Text(
-                "Navigate",
+                getString("Navigate"),
                 style: FontStyles.mediumP12(color: AppColors.green1000),
               ),
               const SizedBox(
