@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:riders_app/constants/colors.dart';
 import 'package:riders_app/constants/text_styles.dart';
 import 'package:riders_app/controllers/otp_controller.dart';
+import 'package:riders_app/view/components/custom_colorBuilder.dart';
 import 'package:riders_app/view/pages/profile_page.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 
@@ -16,17 +17,28 @@ class OTPForm extends StatefulWidget {
 
 class _OTPFormState extends State<OTPForm> {
   TextEditingController fieldController = TextEditingController();
+  FocusNode focusNode = FocusNode();
+  bool isFocus = false;
+
+  Color strokeColor = AppColors.justGrey40;
 
   var otpcontroller = Get.put(OtpController());
 
   @override
   void initState() {
     super.initState();
-    otpcontroller.listen();
+    otpcontroller.listen(); 
+    focusNode.addListener(() {
+      setState(() {
+        
+      }); 
+    });
+
   }
 
   @override
   void dispose() {
+    
     SmsAutoFill().unregisterListener();
     super.dispose();
   }
@@ -63,47 +75,48 @@ class _OTPFormState extends State<OTPForm> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Theme(
-                data: ThemeData(
-                  textSelectionTheme: const TextSelectionThemeData(
-                    cursorColor: Colors.transparent,
-                    selectionHandleColor: Colors.transparent,
-                    selectionColor: Colors.transparent,
-                  ),
-                ),
-                child: SizedBox(
-                  height: 52,
-                  width: MediaQuery.of(context).size.width * 0.7,
-                  child: PinFieldAutoFill(
-                    autoFocus: true,
-                    enableInteractiveSelection: false,
-                    controller: fieldController,
-                    textInputAction: TextInputAction.done,
-                    keyboardType: TextInputType.number,
-                    // focusNode: FocusNode(),
-                    currentCode: "",
-                    codeLength: 4,
-                    cursor: Cursor(
-                      width: 2,
-                      height: 40,
-                      color: Colors.green,
-                      radius: const Radius.circular(1),
-                      enabled: true,
+                Theme(
+                  data: ThemeData(
+                    textSelectionTheme: const TextSelectionThemeData(
+                      cursorColor: Colors.transparent,
+                      selectionHandleColor: Colors.transparent,
+                      selectionColor: Colors.transparent,
                     ),
-                    // inputFormatters: [
-                    //   LengthLimitingTextInputFormatter(1),
-                    //   FilteringTextInputFormatter.digitsOnly,
-                    // ],
-                    onCodeSubmitted: (code) {},
-                    onCodeChanged: (code) {
-                      // FocusScope.of(context).requestFocus(FocusNode());
-                    },
-                    decoration: BoxLooseDecoration(
-                        strokeColorBuilder: PinListenColorBuilder(
-                            AppColors.green1000, AppColors.justGrey40)),
+                  ),
+                  child: SizedBox(
+                    height: 52,
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    child: PinFieldAutoFill(
+                      autoFocus: true,
+                      enableInteractiveSelection: false,
+                      controller: fieldController,
+                      textInputAction:TextInputAction.done,
+                      keyboardType: TextInputType.number,
+                      focusNode: focusNode,
+                      currentCode: "",
+                      codeLength: 4,
+                      cursor: Cursor(
+                        width: 2,
+                        height: 40,
+                        color: Colors.green,
+                        radius: const Radius.circular(1),
+                        enabled: true,
+                      ),
+                      // inputFormatters: [
+                      //   LengthLimitingTextInputFormatter(1),
+                      //   FilteringTextInputFormatter.digitsOnly,
+                      // ],
+                      onCodeSubmitted: (code) {
+                        
+                      },
+                      onCodeChanged: (code) {
+                        // FocusScope.of(context).requestFocus(FocusNode());
+                      },
+                      decoration: BoxLooseDecoration(
+                          strokeColorBuilder:FixedColorBuilder(focusNode.hasFocus?AppColors.green1000:AppColors.justGrey40)),
+                    ),
                   ),
                 ),
-              ),
             ],
           ),
         ),
@@ -113,11 +126,20 @@ class _OTPFormState extends State<OTPForm> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Obx(
-                () => Text(
+                () => otpcontroller.isResendEnabled.value?SizedBox():Text(
                   "Resend on ${otpcontroller.time.value}s",
                   style: FontStyles.medium400P14(color: AppColors.justGrey60),
                 ),
               ),
+
+                 Obx(
+              () => otpcontroller.isResendEnabled.value
+                  ? TextButton(
+                      onPressed: otpcontroller.resendOTP,
+                      child: Text('Resend OTP', style: TextStyle(color: Colors.green)),
+                    )
+                  : SizedBox.shrink(),
+            ),
             ],
           ),
         ),

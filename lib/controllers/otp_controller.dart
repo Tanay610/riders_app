@@ -13,6 +13,7 @@ class OtpController extends GetxController with CodeAutoFill{
 
    RxBool isTextFieldFocused = false.obs;
   RxBool isOtp = false.obs;
+   RxBool isResendEnabled = false.obs;
   
   Timer? _timer;
   int remainingSeconds = 1;
@@ -36,9 +37,7 @@ class OtpController extends GetxController with CodeAutoFill{
 
   @override
   void onClose() {
-    if (_timer != null) {
       _timer!.cancel();
-    }
     super.onClose();
   }
 
@@ -48,6 +47,7 @@ class OtpController extends GetxController with CodeAutoFill{
     _timer = Timer.periodic(duration, (Timer timer) {
       if (remainingSeconds == 0) {
         timer.cancel();
+        isResendEnabled.value = true;
       } else {
         int seconds = (remainingSeconds % 60);
         time.value = "${seconds.toString().padLeft(2, "0")}";
@@ -71,5 +71,13 @@ class OtpController extends GetxController with CodeAutoFill{
   void codeUpdated() {
     otpCode.value = code!;
   }
+
+
+
+   void resendOTP() {
+    isResendEnabled.value = false; 
+    _startTimer(25); 
+  }
+
 
 }
